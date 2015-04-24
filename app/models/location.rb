@@ -4,11 +4,11 @@ class Location < ActiveRecord::Base
 
   def get_barrio(latitude, longitude)
     unless self.barrio.present?
-      if latitude.present? and longitude.present?
-        barrio = Geocoder.search("#{latitude},#{longitude}").first.data["address_components"][2]["long_name"]
-      else
-        barrio = "VERIFICAR DIRECCION"
-      end
+      barrio = if latitude.present? and longitude.present?
+                  Geocoder.search("#{latitude},#{longitude}").first.data["address_components"][2]["long_name"]
+                else
+                  "VERIFICAR DIRECCIÓN"
+                end
        save_barrio(barrio)
     end
   end
