@@ -20,9 +20,9 @@
       <tr>
         <td><%= location.address %></td>
         <td><%= get_barrios(location)%></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', location %></td>
+        <td><%= link_to 'Editar', edit_location_path(location) %></td>
+        <td><%= link_to 'Eliminar', location, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
